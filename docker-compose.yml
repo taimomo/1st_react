@@ -1,0 +1,13 @@
+version: '3.9'
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    user: "1000:1000"          # rootless と UID/GID を合わせる
+    working_dir: /workspace
+    volumes:
+      - .:/workspace           # コードをマウント
+    ports:
+      - "5173:5173"            # Vite dev server
+    command: sleep infinity    # devcontainer 起動後に VS Code がコマンド注入
