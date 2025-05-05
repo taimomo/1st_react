@@ -1,14 +1,17 @@
-import { useState } from 'react';
+import Greeting from './components/Greeting';
 
-export default function App() {
-  const [count, setCount] = useState(0);
+const names = ["Jiro", "Taro", "Saburo"];
 
+function App() {
   return (
-    <div style={{ textAlign: 'center', marginTop: 40 }}>
-      <h1>カウンター</h1>
-      <p>現在の値: {count}</p>
-      <button onClick={() => setCount(count + 1)}>+1</button>
-      <button onClick={() => setCount(count - 1)} style={{ marginLeft: 8 }}>-1</button>
+    <div>
+      {names.map((name, inx) => (
+        <Greeting key={inx} name={name} >
+          <p>ようこそ！</p>
+        </Greeting>
+      ))}
     </div>
   );
 }
+
+export default App;
