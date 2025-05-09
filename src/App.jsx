@@ -1,8 +1,10 @@
-import TodoList from './components/todoList';
+import CountConsole from './components/countEffect';
+import ResizeComponent from './components/resizeComponent';
+import View from './components/resizeComponent';
 
 function App() {
   return (
-    <TodoList></TodoList>
+    <View></View>
   )
 }
 export default App;
