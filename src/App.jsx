@@ -1,10 +1,11 @@
-import CountConsole from './components/countEffect';
-import ResizeComponent from './components/resizeComponent';
-import View from './components/resizeComponent';
+import FetchWithLoading from './components/fetch';
+import TestAsync from './components/test';
+
+
 
 function App() {
   return (
-    <View></View>
+    <FetchWithLoading></FetchWithLoading>
   )
 }
 export default App;

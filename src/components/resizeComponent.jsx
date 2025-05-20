@@ -8,7 +8,9 @@ const ResizeComponent = () => {
         console.log("ResizeComponentがマウントされた");
         const handleResize = () => {
             console.log("リサイズされた！");
-            // 強制的にレンダリング。setSizeで画面高さを更新することでuseEffectが再度実行される。
+            // setSizeにより強制的にレンダリング発生。
+            // React内部では変化を検知（console.logが機能）するが、
+            // それだけではstateが変化しないため、{size}は更新されない。
             setSize(window.innerHeight);
         };
 
@@ -48,7 +50,7 @@ const View = () => {
             {show && <ResizeComponent />}
         </div>
         // 本来、showの動きはResizeComponentに関係ないが、
-        // 親コンポーネントの変更もレンダリングに該当するため、ボタンを押すとResizeComponentが再描写され、
+        // 親コンポーネントの変更もレンダリングに影響するため、ボタンを押すとResizeComponentが再描写され、
         // 結果的にクリーンアップ関数が実行される。
         // 逆に非表示だとResizeComponentはアンマウント状態なので、サイズ変更してもコンソールには表示されない。
     );
